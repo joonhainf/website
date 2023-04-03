@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}All Messages{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Me</title>
+  </head>
+  <body>
+    <h1>About Me</h1>
+    <p>Hey, My name is Luke Hwang, I'm currently studying at UTK. I discovered a passion for programming kind of late, but I figure late is better than never. </p>
+    <p>I have a Masters of Science in Analytics and a Bachelors in Statistics, I've also taken CS courses at Memphis in the year before those two majors</p>
+    <p>I want to be like Elon Musk with technology and cool stuff everywhere</p>
+    <img src="{{ url_for('static', filename='./images/me.jpg') }}" alt="My Image">
+  </body>
+</html>
+{% endblock %}

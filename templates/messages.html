@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}All Messages{% endblock %}
+
+{% block content %}
+  <h1>All Messages</h1>
+  <ul>
+    {% for message in messages %}
+      <li>{{ message.name }} - {{ message.email }} - {{ message.message }}</li>
+    <form method="POST" action="{{ url_for('delete_message', message_id=message.id) }}">
+        <button type="submit">Delete Opinion</button>
+    </form>
+    {% endfor %}
+  </ul>
+{% endblock %}

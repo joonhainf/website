@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Global Warming is Real{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="style.css">
+<div class="videos-wrapper">
+  <div class="clips">
+    <h2 style="font-size: 36px; font-family: Montserrat;">THE COOLEST WEBSITE YOU'LL EVER C</h2>
+    <p style="max-width: 600px;"> This is the website where people go and post their opinions on youtube videos without
+      worrying about backlash from the creator. Complain as much as you want. 
+    </p>
+    <ul>
+      {% for video in what %}
+      <a href="{{ video.url }}">
+        <img src="{{ video.img }}" alt="{{ video.title }}" style="display:block">
+      </a>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="threads">
+    <h2 style="font-size: 24px; font-family: Montserrat;">Say something be brave:</h2>
+    <form method="post" action="/submit">
+      <div class="form-group">
+        <label for="user">User:</label>
+        <input type="text" id="user" name="user"><br><br>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" style="width: 300px;"><br><br>
+      </div>
+        
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+      </div>
+
+        
+      <input type="submit" value="Submit">
+    </form>
+
+    <div class="thread">
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for comment in comments %}
+          <tr>
+            <td>{{ comment.name }}</td>
+            <td>{{ comment.message }}</td>
+
+          
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
